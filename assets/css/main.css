@@ -1,0 +1,404 @@
+/* Cameron Crawley Portfolio
+   Replaces the old Strata template styles */
+
+:root {
+  --ink: #1A1F36;
+  --ink-soft: #4E5470;
+  --blue: #2347C9;
+  --blue-deep: #172F8C;
+  --yellow: #FFD23F;
+  --paper: #F5F6F8;
+  --white: #FFFFFF;
+  --line: #DCDFE7;
+
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif;
+
+  --wrap: 1120px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--blue); }
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* ---------- Nav ---------- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav__name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav__links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nav__links a:hover { color: var(--blue); }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding: 48px 0 96px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.hero__role {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-weight: 500;
+  margin: 20px 0 0;
+  color: var(--ink-soft);
+}
+
+.hero__statement {
+  max-width: 34ch;
+  font-size: 1.25rem;
+  margin: 28px 0 36px;
+}
+
+.hero__photo {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Yellow block offset behind the photo */
+.hero__photo::before {
+  content: "";
+  position: absolute;
+  inset: 24px -24px -24px 24px;
+  background: var(--yellow);
+  border-radius: 8px;
+}
+
+.hero__photo img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--line);
+}
+
+/* ---------- Buttons ---------- */
+.btn-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.btn--solid { background: var(--ink); color: var(--white); }
+.btn--solid:hover { background: var(--blue); border-color: var(--blue); }
+
+.btn--ghost { background: transparent; color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--white); }
+
+/* ---------- Sections ---------- */
+section { padding: 96px 0; }
+
+.section-title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+
+/* ---------- What I do ---------- */
+.services {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.service h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding-top: 16px;
+  border-top: 4px solid var(--blue);
+}
+
+.service p { margin: 0; color: var(--ink-soft); }
+
+/* ---------- About ---------- */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.about__lead {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.about__body p { margin: 0 0 20px; max-width: 62ch; }
+
+/* ---------- Work ---------- */
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 32px;
+}
+
+.project a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+.project__img {
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.project__img img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.project a:hover .project__img img,
+.project a:focus-visible .project__img img { transform: scale(1.04); }
+
+.project__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.project h3 { font-size: 1.5rem; font-weight: 700; }
+
+.tag {
+  flex-shrink: 0;
+  font-size: .875rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.tag--civic { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+
+.project p { margin: 6px 0 0; color: var(--ink-soft); }
+
+.work__more { margin-top: 56px; }
+
+/* ---------- Contact ---------- */
+.contact {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+}
+
+.contact .section-title { margin-bottom: 20px; }
+
+.contact__intro { max-width: 40ch; margin: 0 0 28px; }
+
+.contact__email {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  color: var(--yellow);
+  word-break: break-word;
+}
+
+.form { display: grid; gap: 18px; }
+
+.form label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font: inherit;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.form textarea { min-height: 150px; resize: vertical; }
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--yellow);
+}
+
+.form .btn {
+  justify-self: start;
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
+
+.form .btn:hover { background: var(--white); border-color: var(--white); }
+
+.contact :focus-visible { outline-color: var(--yellow); }
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--blue-deep);
+  color: #C9D2F2;
+  padding: 28px 0;
+  font-size: .95rem;
+}
+
+.footer__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+footer a { color: var(--white); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero,
+  .about__grid,
+  .contact__grid { grid-template-columns: 1fr; gap: 48px; }
+
+  .hero { padding: 24px 0 72px; }
+  .hero__photo { max-width: 300px; justify-self: start; }
+
+  .services__grid { grid-template-columns: 1fr; gap: 36px; }
+
+  section { padding: 72px 0; }
+}
+
+@media (max-width: 640px) {
+  .nav__links { gap: 18px; font-size: 1rem; }
+  .work__grid { grid-template-columns: 1fr; }
+  .hero__photo { max-width: 240px; }
+  .hero__photo::before { inset: 16px -16px -16px 16px; }
+}
+
+/* ---------- Project screenshots ---------- */
+.project__img img { object-position: top; }
+
+/* ---------- Social links ---------- */
+.socials,
+.footer__links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.socials { margin-top: 28px; }
+
+.socials a {
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 2px;
+}
+
+.socials a:hover { color: var(--yellow); }
