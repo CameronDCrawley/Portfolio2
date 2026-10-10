@@ -31,3 +31,4 @@ Email: camerondcrawley@gmail.com
 GitHub
 LinkedIn
 X
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/c3e63303-5d49-4282-a97e-3064fbd01b15" />
